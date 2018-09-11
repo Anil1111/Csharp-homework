@@ -1,2 +1,1 @@
-Git is a distributed version control system.
-Git is free software.
+June Lee's C# homework.
