@@ -20,7 +20,7 @@ namespace program2
             Console.WriteLine("请输入客户名称：");
             string orderName = Console.ReadLine();
 
-            Order order = new Order("orderNum", "orderName");
+            Order order = new Order(orderNum, orderName);
 
             order.AddGoods();
 
