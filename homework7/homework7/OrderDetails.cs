@@ -9,18 +9,22 @@ namespace homework7
     [Serializable]
     public class OrderDetails
     {
-        public string GoodsName { get; set; }
-        public int GoodsPrice { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Quantity { get; set; }
 
-        public OrderDetails()
+        public OrderDetails() { }
+
+        public OrderDetails(string name, double price, int quantity)
         {
-
+            this.Name = name;
+            this.Price = price;
+            this.Quantity = quantity;
         }
 
-        public OrderDetails(string goodsName, int goodsPrice)
+        public override string ToString()
         {
-            GoodsName = goodsName;
-            GoodsPrice = goodsPrice;
+            return Name + "*" + Quantity;
         }
     }
 }

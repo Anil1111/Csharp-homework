@@ -13,8 +13,6 @@ namespace homework7
     {
         public List<Order> OrdersList;
 
-        
-
         public OrderService()
         {
             OrdersList = new List<Order>();
@@ -23,6 +21,11 @@ namespace homework7
         public void AddOrder(Order order)
         {
             OrdersList.Add(order);
+        }
+
+        public void DelOrder(Order order)
+        {
+            OrdersList.Remove(order);
         }
 
         public void Export(string path)//将List存到文件中

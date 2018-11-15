@@ -11,29 +11,34 @@ namespace homework7
     {
         public List<OrderDetails> goodsList = new List<OrderDetails>();
 
-        public string OrderNumber { get; set; }
-        public string OrderCustomer { get; set; }
-        public string OrderGoods { get; set; }
-        public int OrderPrice { get; set; }
+        public string Number { get; set; }
+        public string Customer { get; set; }
+        public string Phone { get; set; }
 
-        public Order()
+        public string AllGoods { get; set; }
+        public double AllPrice { get; set; }
+
+        public Order() { }
+
+        public Order(string number, string customer, string phone)
         {
-
+            Number = number;
+            Customer = customer;
+            Phone = phone;
+            AllGoods = "";
+            AllPrice = 0;
+            foreach (OrderDetails item in goodsList)
+            {
+                AllGoods = AllGoods + item.ToString() + "   ";
+                AllPrice = AllPrice + item.Price * item.Quantity;
+            }
         }
 
-        public Order(string orderNumber, string orderCustomer)
+        public void AddDetail(OrderDetails detail)
         {
-            OrderNumber = orderNumber;
-            OrderCustomer = orderCustomer;
-            OrderGoods = "";
-            OrderPrice = 0;
-        }
-
-        public void AddGoods(OrderDetails goods)
-        {
-            goodsList.Add(goods);
-            OrderGoods = OrderGoods + goods.GoodsName + "   ";
-            OrderPrice = OrderPrice + goods.GoodsPrice;
+            goodsList.Add(detail);
+            AllGoods = AllGoods + detail.ToString() + "   ";
+            AllPrice = AllPrice + detail.Price * detail.Quantity;
         }
     }
 }
